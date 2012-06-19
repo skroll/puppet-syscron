@@ -1,0 +1,2 @@
+SHELL=<%= scope.lookupvar('syscron::config::shell') %>
+PATH=<%= scope.lookupvar('syscron::config::path').join(':') %>
