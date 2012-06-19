@@ -1,0 +1,5 @@
+fixtures:
+    symlinks:
+        'syscron': "#{source_dir}"
+    repositories:
+        'concat': 'git://github.com/ripienaar/puppet-concat.git'
