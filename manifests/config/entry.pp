@@ -1,7 +1,5 @@
 define syscron::config::entry (
   $directory,
-  $owner,
-  $group,
   $minute,
   $hour,
   $dayofmonth,
@@ -10,9 +8,15 @@ define syscron::config::entry (
   $user,
   $command
 ) {
-  file {$directory:
+  file { $directory:
     ensure => 'directory',
-    owner => $owner,
-    group => $group,
+    owner  => $syscron::config::owner,
+    group  => $syscron::config::group,
+  }
+
+  concat::fragment { "${name}-crontab-entry":
+    order   => 20,
+    target  => '/etc/crontab',
+    content => template('syscron/syscron_entry_block.erb'),
   }
 }

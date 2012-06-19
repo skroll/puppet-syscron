@@ -1,15 +1,13 @@
-
 class syscron::config (
-  $owner   = 'root',
-  $group   = 'root',
-  $shell   = '/bin/bash',
-  $path    = ['/usr/local/sbin', '/usr/local/bin', '/sbin', '/usr/sbin',
-              '/usr/bin'],
+  $packages = ['cron']
+  $owner    = 'root',
+  $group    = 'root',
+  $shell    = '/bin/bash',
+  $path     = ['/usr/local/sbin', '/usr/local/bin', '/sbin', '/usr/sbin',
+                '/usr/bin'],
   $entries = {
     'hourly'  => {
       directory  => '/etc/cron.hourly',
-      owner      => 'root',
-      group      => 'root',
       minute     => 17,
       hour       => '*',
       dayofmonth => '*',
@@ -20,42 +18,36 @@ class syscron::config (
     },
     'daily'   => {
       directory  => '/etc/cron.daily',
-      owner      => 'root',
-      group      => 'root',
       minute     => 25,
       hour       => 6,
       dayofmonth => '*',
       month      => '*',
       dayofweek  => '*',
       user       => 'root',
-      command    => 'test -x /usr/sbin/anacron || ( cd / && run-parts \
---report /etc/cron.daily )',
+      command    => "test -x /usr/sbin/anacron || ( cd / && run-parts \
+--report /etc/cron.daily )",
     },
     'weekly'  => {
       directory  => '/etc/cron.weekly',
-      owner      => 'root',
-      group      => 'root',
       minute     => 47,
       hour       => 6,
       dayofmonth => '*',
       month      => '*',
       dayofweek  => 7,
       user       => 'root',
-      command    => 'test -x /usr/sbin/anacron || ( cd / && run-parts \
---report /etc/cron.weekly )',
+      command    => "test -x /usr/sbin/anacron || ( cd / && run-parts \
+--report /etc/cron.weekly )",
     },
     'monthly' => {
       directory  => '/etc/cron.monthly',
-      owner      => 'root',
-      group      => 'root',
       minute     => 52,
       hour       => 6,
       dayofmonth => 1,
       month      => '*',
       dayofweek  => '*',
       user       => 'root',
-      command    => 'test -x /usr/sbin/anacron || ( cd / && run-parts \
---report /etc/cron.monthly )',
+      command    => "test -x /usr/sbin/anacron || ( cd / && run-parts \
+--report /etc/cron.monthly )",
     },
   },
 ){
