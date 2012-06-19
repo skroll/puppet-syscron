@@ -55,7 +55,7 @@
 # Copyright 2012 Scott Kroll, unless otherwised noted.
 #
 class syscron::config (
-  $packages = ['cron']
+  $packages = ['cron'],
   $owner    = 'root',
   $group    = 'root',
   $shell    = '/bin/bash',
