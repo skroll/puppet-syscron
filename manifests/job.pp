@@ -66,5 +66,6 @@ define syscron::job (
     mode    => '0755',
     source  => $source,
     content => $content,
+    require => File[$entry_path],
   }
 }
