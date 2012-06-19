@@ -8,14 +8,19 @@
 #
 # [*packages*]
 #   The packages that are required by the system to use crontab.
+#
 # [*owner*]
 #   The user that crontab is run as.
+#
 # [*group*]
 #   The group that crontab is run as.
+#
 # [*shell*]
 #   The shell to use when parsing /etc/crontab.
+#
 # [*path*]
 #   The path to use when parsing /etc/crontab.
+#
 # [*entries*]
 #   The entries to use.
 #
