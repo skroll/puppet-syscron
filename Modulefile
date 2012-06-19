@@ -1,5 +1,5 @@
 name    'skroll-syscron'
-version '0.0.1'
+version '0.0.2'
 source 'git://github.com/skroll/puppet-syscron'
 author 'Scott M. Kroll'
 license 'Apache License, Version 2.0'
