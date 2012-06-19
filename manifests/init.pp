@@ -21,5 +21,9 @@
 class syscron (
 ) {
   include concat::setup
+
+  # This just includes the configuration, so if users don't want to customize
+  # it at all, than the majority of the work can be provided by just
+  # including syscron::config.
   include syscron::config
 }
