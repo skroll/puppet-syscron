@@ -1,3 +1,14 @@
 syscron
 
-This is the syscron module.
+This module manages the system-wide crontab (/etc/crontab) and it's jobs.
+It also manages directories, and allows for creation of new cron entries,
+such as /etc/cron.hourly, /etc/cron.daily, etc.
+
+License
+-------
+Apache 2.0
+
+Contact
+-------
+Scott Kroll <skroll@gmail.com>
+
